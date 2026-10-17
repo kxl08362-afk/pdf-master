@@ -27,8 +27,8 @@
       "sha256": "e77e3e26501e8f3123994c86bc364e18f52fc43f65d80eae7fe00e9cb2c4f4ef"
     },
     "BUILD_VERIFICATION.md": {
-      "bytes": 1453,
-      "sha256": "529d5db0027c6e65b09a19746482c76f32199eb885daf75b91cb8b776bd2e753"
+      "bytes": 2223,
+      "sha256": "514688159e6ad3edf50a4ab1930802f39c17b424f7d8139a99e774b476eacaf0"
     },
     "CODE_SIGNING.md": {
       "bytes": 4269,
@@ -597,6 +597,10 @@
     "openspec/specs/pdf-workspace/spec.md": {
       "bytes": 2468,
       "sha256": "d3e737f79ac6e8399c020d61c56c1a2df68ea5e1b1fbd843b62958262d0f592d"
+    },
+    "openspec/specs/release-provenance/spec.md": {
+      "bytes": 3450,
+      "sha256": "47b308a3b0cab1953dfeb1ca25106a2011b817ed1f5ef11561f4caec251b44cf"
     },
     "openspec/specs/windows-distribution/spec.md": {
       "bytes": 1813,
