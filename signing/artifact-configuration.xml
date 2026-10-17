@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <parameters>
+    <parameter name="version" required="true" />
+  </parameters>
+  <!-- GitHub upload-artifact wraps this exact own EXE in a ZIP. No DLL wildcard. -->
+  <zip-file>
+    <pe-file path="PDFMaster.exe" min-matches="1" max-matches="1"
+             original-filename="PDFMaster.exe" product-name="PDF Мастер"
+             product-version="${version}" company-name="PDF Мастер contributors">
+      <authenticode-sign />
+    </pe-file>
+  </zip-file>
+</artifact-configuration>

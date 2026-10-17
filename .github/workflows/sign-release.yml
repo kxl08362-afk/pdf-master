@@ -1,0 +1,162 @@
+name: Manually sign trusted main artifacts
+
+# No PR trigger and no automatic release publication. Until SignPath approval,
+# configuration and a protected environment exist, readiness fails explicitly.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  PYTHONUTF8: '1'
+
+jobs:
+  readiness:
+    name: Require approved configuration and protected main environment
+    runs-on: windows-2025
+    timeout-minutes: 5
+    steps:
+      - name: Fail closed until external approval and protection are configured
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SIGNPATH_ENABLED: ${{ vars.SIGNPATH_ENABLED }}
+          SIGNPATH_ORGANIZATION_ID: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
+          SIGNPATH_PROJECT_SLUG: ${{ vars.SIGNPATH_PROJECT_SLUG }}
+          SIGNPATH_SIGNING_POLICY_SLUG: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+          SIGNPATH_APPLICATION_CONFIGURATION_SLUG: ${{ vars.SIGNPATH_APPLICATION_CONFIGURATION_SLUG }}
+          SIGNPATH_INSTALLER_CONFIGURATION_SLUG: ${{ vars.SIGNPATH_INSTALLER_CONFIGURATION_SLUG }}
+          SIGNPATH_CERTIFICATE_THUMBPRINT: ${{ vars.SIGNPATH_CERTIFICATE_THUMBPRINT }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:GITHUB_REF -ne 'refs/heads/main') { throw 'Signing dispatch must use the trusted main branch.' }
+          if ($env:SIGNPATH_ENABLED -ne 'true') { throw 'Signing disabled: SignPath approval and configuration have not been enabled by the owner.' }
+          if ($env:SIGNPATH_ORGANIZATION_ID -notmatch '^[a-fA-F0-9-]{36}$') { throw 'Configure the approved SignPath organization ID.' }
+          foreach ($name in @('SIGNPATH_PROJECT_SLUG','SIGNPATH_SIGNING_POLICY_SLUG','SIGNPATH_APPLICATION_CONFIGURATION_SLUG','SIGNPATH_INSTALLER_CONFIGURATION_SLUG')) {
+            if ([Environment]::GetEnvironmentVariable($name) -notmatch '^[A-Za-z0-9._-]+$') { throw "Configure approved repository variable $name." }
+          }
+          if ($env:SIGNPATH_CERTIFICATE_THUMBPRINT -notmatch '^[a-fA-F0-9]{40}$') { throw 'Configure the approved public certificate thumbprint.' }
+          $headers = @{ Authorization = "Bearer $env:GH_TOKEN"; Accept = 'application/vnd.github+json'; 'X-GitHub-Api-Version' = '2022-11-28' }
+          $base = "$env:GITHUB_API_URL/repos/$env:GITHUB_REPOSITORY/environments/signpath-release"
+          $protection = Invoke-RestMethod -Uri $base -Headers $headers
+          $reviewRules = @($protection.protection_rules | Where-Object { $_.type -eq 'required_reviewers' -and @($_.reviewers).Count -gt 0 })
+          if (-not $reviewRules.Count) { throw 'signpath-release environment must require manual reviewer approval.' }
+          if (-not $protection.deployment_branch_policy.custom_branch_policies) { throw 'Restrict signpath-release deployment branches to main.' }
+          $policies = Invoke-RestMethod -Uri "$base/deployment-branch-policies" -Headers $headers
+          if ($policies.branch_policies.Count -ne 1 -or $policies.branch_policies[0].name -ne 'main' -or $policies.branch_policies[0].type -ne 'branch') {
+            throw 'signpath-release must allow exactly the main branch, with no tag/wildcard policy.'
+          }
+  build:
+    name: Build trusted source without signing credentials
+    needs: readiness
+    uses: ./.github/workflows/windows-ci.yml
+    permissions:
+      contents: read
+  sign:
+    name: Approve, sign own EXE, compile and sign installer
+    needs: [readiness, build]
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    runs-on: windows-2025
+    timeout-minutes: 120
+    environment: signpath-release
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout the same reviewed commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Download the exact unsigned build payload
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          artifact-ids: ${{ needs.build.outputs.unsigned_bundle_artifact_id }}
+          path: .
+          merge-multiple: true
+      - name: Sign exact own executable already stored by GitHub
+        id: sign_application
+        uses: signpath/github-action-submit-signing-request@f6d04783b4569d051e0c80105fe66e82819d0092 # v3.0
+        with:
+          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+          organization-id: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
+          project-slug: ${{ vars.SIGNPATH_PROJECT_SLUG }}
+          signing-policy-slug: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+          artifact-configuration-slug: ${{ vars.SIGNPATH_APPLICATION_CONFIGURATION_SLUG }}
+          github-artifact-id: ${{ needs.build.outputs.unsigned_application_artifact_id }}
+          wait-for-completion: true
+          wait-for-completion-timeout-in-seconds: '1800'
+          output-artifact-directory: ci/signed-application
+          parameters: |
+            version: ${{ toJSON(needs.build.outputs.version) }}
+      - name: Require approved signature before replacing own executable
+        env:
+          EXPECTED_CERT: ${{ vars.SIGNPATH_CERTIFICATE_THUMBPRINT }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $path = 'ci/signed-application/PDFMaster.exe'
+          $signature = Get-AuthenticodeSignature -LiteralPath $path
+          if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Thumbprint -ne $env:EXPECTED_CERT -or $null -eq $signature.TimeStamperCertificate) { throw 'Returned application signature is not Valid/timestamped/approved.' }
+          Copy-Item -LiteralPath $path -Destination dist/PDFMaster/PDFMaster.exe -Force
+      - name: Bootstrap pinned compiler and Python
+        id: tools
+        run: ./scripts/prepare_ci_tools.ps1
+      - name: Compile installer around the signed own executable
+        id: installer
+        env:
+          CI_PYTHON: ${{ steps.tools.outputs.python-path }}
+          CI_ISCC: ${{ steps.tools.outputs.iscc-path }}
+          EXPECTED_CERT: ${{ vars.SIGNPATH_CERTIFICATE_THUMBPRINT }}
+        run: ./scripts/ci_build.ps1 -Phase Installer -Python $env:CI_PYTHON -Iscc $env:CI_ISCC -ExpectedThumbprint $env:EXPECTED_CERT
+      - name: Upload unsigned outer installer before requesting its signature
+        id: outer
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: PDFMaster-outer-installer-unsigned-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/installers/PDFMaster-Setup-${{ needs.build.outputs.version }}.exe
+          if-no-files-found: error
+          retention-days: 14
+      - name: Sign outer Inno executable after its GitHub artifact upload
+        uses: signpath/github-action-submit-signing-request@f6d04783b4569d051e0c80105fe66e82819d0092 # v3.0
+        with:
+          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+          organization-id: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
+          project-slug: ${{ vars.SIGNPATH_PROJECT_SLUG }}
+          signing-policy-slug: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+          artifact-configuration-slug: ${{ vars.SIGNPATH_INSTALLER_CONFIGURATION_SLUG }}
+          github-artifact-id: ${{ steps.outer.outputs.artifact-id }}
+          wait-for-completion: true
+          wait-for-completion-timeout-in-seconds: '1800'
+          output-artifact-directory: ci/signed-installer
+          parameters: |
+            version: ${{ toJSON(needs.build.outputs.version) }}
+      - name: Verify both signed outputs, unchanged upstream files and frozen code
+        env:
+          CI_PYTHON: ${{ steps.tools.outputs.python-path }}
+          EXPECTED_CERT: ${{ vars.SIGNPATH_CERTIFICATE_THUMBPRINT }}
+          RELEASE_VERSION: ${{ needs.build.outputs.version }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $name = "PDFMaster-Setup-$env:RELEASE_VERSION.exe"
+          $path = Join-Path ci/signed-installer $name
+          $signature = Get-AuthenticodeSignature -LiteralPath $path
+          if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Thumbprint -ne $env:EXPECTED_CERT -or $null -eq $signature.TimeStamperCertificate) { throw 'Returned installer signature is not Valid/timestamped/approved.' }
+          Copy-Item -LiteralPath $path -Destination (Join-Path dist/installers $name) -Force
+          ./scripts/ci_build.ps1 -Phase VerifySigned -Python $env:CI_PYTHON -ExpectedThumbprint $env:EXPECTED_CERT
+      # Only two own PE artifacts are signed. The generated Inno uninstaller
+      # and all upstream DLLs retain their existing signatures/unsigned status.
+      # No GitHub Release is created, even after verification succeeds.
+      - name: Upload verified signed artifacts and signature evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: PDFMaster-signed-verified-${{ needs.build.outputs.version }}-${{ github.run_id }}
+          path: |
+            ci/signed-installer/
+            ci/signed-application/
+            ci/qa/signatures.json
+            ci/qa/frozen-signed-final.json
+            dist/build-manifest.json
+          if-no-files-found: error
+          retention-days: 30

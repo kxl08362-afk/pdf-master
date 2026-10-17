@@ -1,0 +1,88 @@
+name: Windows unsigned build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+    outputs:
+      version:
+        value: ${{ jobs.build.outputs.version }}
+      unsigned_application_artifact_id:
+        value: ${{ jobs.build.outputs.unsigned_application_artifact_id }}
+      unsigned_bundle_artifact_id:
+        value: ${{ jobs.build.outputs.unsigned_bundle_artifact_id }}
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUTF8: '1'
+
+jobs:
+  build:
+    name: Test and build unsigned Windows x64
+    runs-on: windows-2025
+    timeout-minutes: 45
+    outputs:
+      version: ${{ steps.build.outputs.version }}
+      unsigned_application_artifact_id: ${{ steps.application.outputs.artifact-id }}
+      unsigned_bundle_artifact_id: ${{ steps.bundle.outputs.artifact-id }}
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout exact source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      # actions/setup-python has no Windows 3.12.14 security-release binary.
+      # Bootstrap verifies the exact immutable Astral build and Inno installer.
+      - name: Bootstrap pinned CPython 3.12.14 and Inno 6.2.2
+        id: tools
+        run: ./scripts/prepare_ci_tools.ps1
+      - name: Test, freeze, compile and verify unsigned application
+        id: build
+        env:
+          CI_PYTHON: ${{ steps.tools.outputs.python-path }}
+          CI_ISCC: ${{ steps.tools.outputs.iscc-path }}
+        run: ./scripts/ci_build.ps1 -Phase Build -Python $env:CI_PYTHON -Iscc $env:CI_ISCC
+      - name: Upload exact unsigned own executable for origin verification
+        id: application
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: PDFMaster-unsigned-application-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/PDFMaster/PDFMaster.exe
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload complete unsigned application and build evidence
+        id: bundle
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: PDFMaster-unsigned-bundle-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            dist/PDFMaster/
+            dist/build-manifest.json
+            build/PDFMaster/PYZ-00.pyz
+            ci/payload-hashes.json
+            ci/provenance.json
+            ci/qa/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload unsigned installer
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: PDFMaster-unsigned-installer-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/installers/PDFMaster-Setup-${{ steps.build.outputs.version }}.exe
+          if-no-files-found: error
+          retention-days: 14
+      - name: Preserve test diagnostics after a failure
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: PDFMaster-failed-tests-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ci/qa/
+          if-no-files-found: warn
+          retention-days: 7

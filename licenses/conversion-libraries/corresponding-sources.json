@@ -1,0 +1,67 @@
+{
+  "img2pdf": {
+    "version": "0.6.3",
+    "source_archives": [
+      {
+        "url": "https://files.pythonhosted.org/packages/8e/97/ca44c467131b93fda82d2a2f21b738c8bcf63b5259e3b8250e928b8dd52a/img2pdf-0.6.3.tar.gz",
+        "sha256": "219518020f5bd242bdc46493941ea3f756f664c2e86f2454721e74353f58cd95"
+      }
+    ],
+    "project_urls": {
+      "Home": "https://gitlab.mister-muffin.de/josch/img2pdf"
+    }
+  },
+  "pikepdf": {
+    "version": "10.17.0",
+    "source_archives": [
+      {
+        "url": "https://files.pythonhosted.org/packages/b8/c3/8fc5695947a711263e17786c1d913b0cea660a1b174a9e0e944ad037732c/pikepdf-10.17.0.tar.gz",
+        "sha256": "de4ccaae83628e86c1fd473b384c09c6ff1dd35a583a8dacbf61d2aa4bea843b"
+      }
+    ],
+    "project_urls": {
+      "changelog": "https://pikepdf.readthedocs.io/en/latest/releasenotes/index.html",
+      "documentation": "https://pikepdf.readthedocs.io/",
+      "repository": "https://github.com/pikepdf/pikepdf"
+    }
+  },
+  "lxml": {
+    "version": "6.1.3",
+    "source_archives": [
+      {
+        "url": "https://files.pythonhosted.org/packages/23/ad/28ecd7cb894d172f3c9c80a075eeeb2017ac62e3632cee05a5f9493547eb/lxml-6.1.3.tar.gz",
+        "sha256": "45222d94ddd511536f3b2f7d9deae3b2339b4ce0f075f1ca25703b07cad9dd21"
+      }
+    ],
+    "project_urls": {
+      "Bug Tracker": "https://bugs.launchpad.net/lxml",
+      "Homepage": "https://lxml.de/",
+      "Source": "https://github.com/lxml/lxml"
+    }
+  },
+  "packaging": {
+    "version": "26.3",
+    "source_archives": [
+      {
+        "url": "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz",
+        "sha256": "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+      }
+    ],
+    "project_urls": {
+      "Documentation": "https://packaging.pypa.io/",
+      "Source": "https://github.com/pypa/packaging"
+    }
+  },
+  "native_qpdf": {
+    "version": "12.4.2",
+    "source": "https://github.com/qpdf/qpdf/tree/v12.4.2"
+  },
+  "native_libxml2": {
+    "version": "2.11.9",
+    "source": "https://gitlab.gnome.org/GNOME/libxml2/-/tree/v2.11.9"
+  },
+  "native_libxslt": {
+    "version": "1.1.45",
+    "source": "https://gitlab.gnome.org/GNOME/libxslt/-/tree/v1.1.45"
+  }
+}

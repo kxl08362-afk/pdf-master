@@ -1,0 +1,790 @@
+{
+  "project": "PDF Master",
+  "version": "0.3.0",
+  "files": {
+    ".gitattributes": {
+      "bytes": 148,
+      "sha256": "ffa17c7ea0fde1fcf438aa6c6e62b3106e12880b2e1d3c8c321adb4bf5a40e46"
+    },
+    ".github/workflows/sign-release.yml": {
+      "bytes": 9282,
+      "sha256": "05fff1dbb9eefe1b129246163275fa59169ce0ab12634b55a2ade16a783edaa9"
+    },
+    ".github/workflows/windows-ci.yml": {
+      "bytes": 3321,
+      "sha256": "686e50fe7ad7c95f6f40f98f5fd7259f210cc48af5f5bc1e7253d374536a7fcd"
+    },
+    ".gitignore": {
+      "bytes": 215,
+      "sha256": "b990162ee6d89402b5f92e9ab11220d163e9ce0bc0079ea4789bf5f464511b4f"
+    },
+    "app.py": {
+      "bytes": 1968,
+      "sha256": "1a2b8211baefd0449c4d94da83e380fac510d388eb70df7784bd66f50448a993"
+    },
+    "build.ps1": {
+      "bytes": 1679,
+      "sha256": "e77e3e26501e8f3123994c86bc364e18f52fc43f65d80eae7fe00e9cb2c4f4ef"
+    },
+    "BUILD_VERIFICATION.md": {
+      "bytes": 1453,
+      "sha256": "529d5db0027c6e65b09a19746482c76f32199eb885daf75b91cb8b776bd2e753"
+    },
+    "CODE_SIGNING.md": {
+      "bytes": 4269,
+      "sha256": "32fd0f175cbe64f7de5984cc646f7592dcd7750c890f0f4b0a913bee0baee126"
+    },
+    "command_menu.py": {
+      "bytes": 18209,
+      "sha256": "78934db86eacbf11f9941cd2a7005be288fea657378c406f8c1cc3cec4ab6c2f"
+    },
+    "CONTRIBUTING.md": {
+      "bytes": 3089,
+      "sha256": "fa3d8e41d5afea6bb046c090f6dc18b38d0ab277b8773dfe9d180ec7572536b3"
+    },
+    "diagnostics.py": {
+      "bytes": 10281,
+      "sha256": "7e5da7ad82436842592544eb46a3f85e87db5ce1c33179bfe0097d2c98cfa5f0"
+    },
+    "engine.py": {
+      "bytes": 35706,
+      "sha256": "9fdfc66ed91575f7d23bb4fcc65b0a9c2ece1f1c2764a1576857bf960a0f5063"
+    },
+    "installer/BUILD.md": {
+      "bytes": 9983,
+      "sha256": "f3836a33ddf506c5b6883659752d90d77932fd3e0cf9c283a4c12d93169718c1"
+    },
+    "installer/hooks/hook-pikepdf.py": {
+      "bytes": 293,
+      "sha256": "14f66dc12ec63b26125fb1a9e91fb80c0cf2fcbdf79c4d4d9b4ae7e4bc78f277"
+    },
+    "installer/PDFMaster.iss": {
+      "bytes": 1623,
+      "sha256": "acebe5d63b9955c8dc3462a3f3c870ff6b4b5de486407ef5397a7624737fcca2"
+    },
+    "installer/version.txt": {
+      "bytes": 780,
+      "sha256": "790151ac56bfe388d05c0aac80617a0e352ef2453ab880e6dd326db5423b0753"
+    },
+    "LICENSE.txt": {
+      "bytes": 34020,
+      "sha256": "d8a6cc31abc16b6748c7a21f21611f5a1ec33f67d22ca23d7da1c19b95496bee"
+    },
+    "licenses/conversion-libraries/corresponding-sources.json": {
+      "bytes": 2267,
+      "sha256": "5009cff50605ae442384566f67fae4ec5fe73b78529cc5443a1e9ad36427ce5a"
+    },
+    "licenses/conversion-libraries/img2pdf/LICENSE": {
+      "bytes": 7652,
+      "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118"
+    },
+    "licenses/conversion-libraries/lxml/LICENSE.txt": {
+      "bytes": 1507,
+      "sha256": "8fc2b568133516e46845d2147917adeee1648e70ae9ab5ed6c5417afef4ce855"
+    },
+    "licenses/conversion-libraries/lxml/LICENSES.txt": {
+      "bytes": 6221,
+      "sha256": "388fa99f3bde4447cd5a4cbb114037be026854db6cfe89e112691c1d8abdcf3c"
+    },
+    "licenses/conversion-libraries/packaging/LICENSE": {
+      "bytes": 197,
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+    },
+    "licenses/conversion-libraries/packaging/LICENSE.APACHE": {
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    "licenses/conversion-libraries/packaging/LICENSE.BSD": {
+      "bytes": 1344,
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+    },
+    "licenses/conversion-libraries/pikepdf/LICENSE.txt": {
+      "bytes": 16725,
+      "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+    },
+    "licenses/conversion-libraries/pikepdf/third-party-licenses/CC-BY-4.0-veraPDF.txt": {
+      "bytes": 17758,
+      "sha256": "86057e027dad20f02ed574e6bd856fc56539b6fd0b7085925f46384eefa02c00"
+    },
+    "licenses/conversion-libraries/pikepdf/third-party-licenses/GCC-exception-3.1.txt": {
+      "bytes": 3324,
+      "sha256": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74"
+    },
+    "licenses/conversion-libraries/pikepdf/third-party-licenses/GPL-3.0.txt": {
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    "licenses/conversion-libraries/pikepdf/third-party-licenses/libjpeg-turbo-README.ijg.txt": {
+      "bytes": 12799,
+      "sha256": "75815e3bf6484201a3c3d17a1bbf10f2e8e3237f84df10a2357ea896db2a81d6"
+    },
+    "licenses/conversion-libraries/pikepdf/third-party-licenses/libjpeg-turbo.txt": {
+      "bytes": 6077,
+      "sha256": "ba6bceebcba0fdd35488477c2cca8c4632ce82c74dbfbc87d886ce6fc4433579"
+    },
+    "licenses/conversion-libraries/pikepdf/third-party-licenses/microsoft-visual-cpp-runtime.txt": {
+      "bytes": 1697,
+      "sha256": "116b4e8ee0885dbc69828206586d7ecf05abe1bd66aaad26b4db7b22840d5012"
+    },
+    "licenses/conversion-libraries/pikepdf/third-party-licenses/openssl.txt": {
+      "bytes": 10175,
+      "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
+    },
+    "licenses/conversion-libraries/pikepdf/third-party-licenses/pdfminer.six.txt": {
+      "bytes": 1438,
+      "sha256": "51fff42ed29ec6a162046ebd9bbc755bfc45e86ab7f7284970e36cd7fa94d99f"
+    },
+    "licenses/conversion-libraries/pikepdf/third-party-licenses/qpdf.txt": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "licenses/conversion-libraries/pikepdf/third-party-licenses/README.md": {
+      "bytes": 6067,
+      "sha256": "0be42a401909f54caf44ec78f90fd3b4af0da4aacf1a540d9652d924120fe60b"
+    },
+    "licenses/conversion-libraries/pikepdf/third-party-licenses/sRGB-icc-profile.txt": {
+      "bytes": 1442,
+      "sha256": "d796a2cbecdcaa24aec533278d72f12fd29187310fde3dce66d8f23749ba516e"
+    },
+    "licenses/conversion-libraries/pikepdf/third-party-licenses/zlib.txt": {
+      "bytes": 1002,
+      "sha256": "845efc77857d485d91fb3e0b884aaa929368c717ae8186b66fe1ed2495753243"
+    },
+    "licenses/DejaVu-LICENSE.txt": {
+      "bytes": 8816,
+      "sha256": "7a083b136e64d064794c3419751e5c7dd10d2f64c108fe5ba161eae5e5958a93"
+    },
+    "licenses/GPL-3.0.txt": {
+      "bytes": 34674,
+      "sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0"
+    },
+    "licenses/InnoSetup-LICENSE.txt": {
+      "bytes": 1490,
+      "sha256": "b37a486c3a34e0a3d40b753bd32c9bdd02e60e9c6f6ce27b9f8b32382ffbc94d"
+    },
+    "licenses/LGPL-3.0.txt": {
+      "bytes": 42098,
+      "sha256": "996af0513df21f7496288951c41428a03c174e9e4a9d63665c57d670f845ccb1"
+    },
+    "licenses/MuPDF-COPYING.txt": {
+      "bytes": 34520,
+      "sha256": "57c8ff33c9c0cfc3ef00e650a1cc910d7ee479a8bc509f6c9209a7c2a11399d6"
+    },
+    "licenses/mupdf-third-party/brotli/LICENSE": {
+      "bytes": 1084,
+      "sha256": "3d180008e36922a4e8daec11c34c7af264fed5962d07924aea928c38e8663c94"
+    },
+    "licenses/mupdf-third-party/brotli/README": {
+      "bytes": 650,
+      "sha256": "88e262e2a55630c48096335d5e7c201392fda9e4e880d9588f7e9bf5015f5781"
+    },
+    "licenses/mupdf-third-party/brotli/README.md": {
+      "bytes": 4586,
+      "sha256": "e45155f191dab9d8999a85060a2ccb0cda94810868fcc816a0dae46d9aa04c97"
+    },
+    "licenses/mupdf-third-party/cmark-gfm/COPYING": {
+      "bytes": 7567,
+      "sha256": "c22e885f33b821bddb24cf007145e5540655b6c0f403e49e6c76a93c28e6d9a9"
+    },
+    "licenses/mupdf-third-party/cmark-gfm/README.md": {
+      "bytes": 7337,
+      "sha256": "7beb500a5a7e9a996fcc91db8d5c2aa2a1b211be5531c9d7b64c09dde663c17b"
+    },
+    "licenses/mupdf-third-party/curl/COPYING": {
+      "bytes": 1088,
+      "sha256": "8c8824f50e73a021f5dde1fccbf69685939247399a33a32abab1fa448c9ddabb"
+    },
+    "licenses/mupdf-third-party/curl/README": {
+      "bytes": 1741,
+      "sha256": "98b7a2ad61971bad042a7469ce4fb038fef70f328583006d8231c6578f3a85c7"
+    },
+    "licenses/mupdf-third-party/curl/README.md": {
+      "bytes": 5047,
+      "sha256": "4fe86dcb9496ed8d614329eae9bd9a31a29c23e0998dd9bc1fbfa9fa784bf886"
+    },
+    "licenses/mupdf-third-party/extract/COPYING": {
+      "bytes": 34520,
+      "sha256": "57c8ff33c9c0cfc3ef00e650a1cc910d7ee479a8bc509f6c9209a7c2a11399d6"
+    },
+    "licenses/mupdf-third-party/extract/README": {
+      "bytes": 2186,
+      "sha256": "71691bd55ba258d17a8ee2cc05ae05d5b7833e9e06abf5524bd213af19eab35a"
+    },
+    "licenses/mupdf-third-party/freeglut/COPYING": {
+      "bytes": 1439,
+      "sha256": "b6593d5ec4c113a274abb85b10e8615895cb0ddb89f7912af5fe5aa8df38a275"
+    },
+    "licenses/mupdf-third-party/freeglut/README": {
+      "bytes": 1974,
+      "sha256": "da7dea44fa2c065b04f927f4192e0e4e4172df9e82bba931901eafa7fd50c6ee"
+    },
+    "licenses/mupdf-third-party/freetype/docs__FTL.TXT": {
+      "bytes": 6743,
+      "sha256": "5a5ee54c5001bbad1cdc1a57cc3dd4c42199b2da09d39c7ee41fab002d02967f"
+    },
+    "licenses/mupdf-third-party/freetype/docs__GPLv2.TXT": {
+      "bytes": 17994,
+      "sha256": "c4120c6752c910c299e3bd9cb3a46ff262c268303ca2069b61f92f10a5656c18"
+    },
+    "licenses/mupdf-third-party/freetype/LICENSE.TXT": {
+      "bytes": 2149,
+      "sha256": "bd36c8b474855fa294c2ec5c184544478ef3720aad37d65a6296a4f264fd2d3b"
+    },
+    "licenses/mupdf-third-party/freetype/README": {
+      "bytes": 3189,
+      "sha256": "f322f7906b11a8c44b8a3973c0b1b31e56b5d59ef78638a459bf134f9c145796"
+    },
+    "licenses/mupdf-third-party/gumbo-parser/COPYING": {
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "licenses/mupdf-third-party/gumbo-parser/README.md": {
+      "bytes": 8518,
+      "sha256": "4488091f3d4b36ab985e584fb2db8ea322356af4119f12e9c33fe94eba611c43"
+    },
+    "licenses/mupdf-third-party/harfbuzz/COPYING": {
+      "bytes": 1971,
+      "sha256": "ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64"
+    },
+    "licenses/mupdf-third-party/harfbuzz/README.md": {
+      "bytes": 7632,
+      "sha256": "41c44ef72ae4c2ec29a2a9647716c53e978aabdc9a76b49bea86e4f3d6df8936"
+    },
+    "licenses/mupdf-third-party/jbig2dec/COPYING": {
+      "bytes": 34520,
+      "sha256": "57c8ff33c9c0cfc3ef00e650a1cc910d7ee479a8bc509f6c9209a7c2a11399d6"
+    },
+    "licenses/mupdf-third-party/jbig2dec/LICENSE": {
+      "bytes": 1170,
+      "sha256": "1bf5258afe453934484fd0cea97508b72301633a6a78b0ae8a9ee44ac78f26d9"
+    },
+    "licenses/mupdf-third-party/jbig2dec/README": {
+      "bytes": 1193,
+      "sha256": "f997901f0e40323d5be38e411b96047720793aad881241702936454fbd949acf"
+    },
+    "licenses/mupdf-third-party/lcms2/LICENSE": {
+      "bytes": 1075,
+      "sha256": "74fe8934cee0e63e8368d4a6b3a703b603e753a62b75b75273572e98a57ebf75"
+    },
+    "licenses/mupdf-third-party/lcms2/README.md": {
+      "bytes": 1260,
+      "sha256": "cb96825e32b2f40d034aff0644b5f21075663510043a72ede1243db76ca8bf18"
+    },
+    "licenses/mupdf-third-party/leptonica/leptonica-license.txt": {
+      "bytes": 1521,
+      "sha256": "87829abb5bbb00b55a107365da89e9a33f86c4250169e5a1e5588505be7d5806"
+    },
+    "licenses/mupdf-third-party/leptonica/README.md": {
+      "bytes": 6476,
+      "sha256": "a77abccb78c6ff1612c7c9549db0f1c4ec88f9124ee3140388f4a76b5376434f"
+    },
+    "licenses/mupdf-third-party/libjpeg/README": {
+      "bytes": 18711,
+      "sha256": "913af09f785683accdf660b85dcf27fdd567d4ad649daa95cb8771b040db79d1"
+    },
+    "licenses/mupdf-third-party/mujs/COPYING": {
+      "bytes": 759,
+      "sha256": "0ca9b4fbfbcab8ac7d32475890d866efc02f4cffb6b6da5c0e9a0615cc3d82fe"
+    },
+    "licenses/mupdf-third-party/mujs/README": {
+      "bytes": 1535,
+      "sha256": "270a5af822c959605b831be8ffabdca12ae4f9df0d115685a3f4bbbb22e2fb06"
+    },
+    "licenses/mupdf-third-party/openjpeg/LICENSE": {
+      "bytes": 2112,
+      "sha256": "a6af136f3e15038a666b61f376612a07d9a4e48cb7c01adbf3e33b3f14ab49b6"
+    },
+    "licenses/mupdf-third-party/openjpeg/README.md": {
+      "bytes": 5402,
+      "sha256": "cc0090eb6abfbea7d44351851d04bcfcfeb9181eac9fcb8b2d108091b5eefc24"
+    },
+    "licenses/mupdf-third-party/sources.json": {
+      "bytes": 3774,
+      "sha256": "51ad86ad88b6d309a37dce3a3e89c61fbba8c501a533a12c61c3d451b864c078"
+    },
+    "licenses/mupdf-third-party/tesseract/LICENSE": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "licenses/mupdf-third-party/tesseract/README.md": {
+      "bytes": 8140,
+      "sha256": "1ae1aef82544563774c896f910105adcd29ee1553b5b8fe7c2acedc069c1bb91"
+    },
+    "licenses/mupdf-third-party/zint/LICENSE": {
+      "bytes": 909,
+      "sha256": "d69af7f2442fcde1c3372cbbb43907fa1f4b3a91ef3899be69dd3a726dc255a4"
+    },
+    "licenses/mupdf-third-party/zint/README": {
+      "bytes": 4631,
+      "sha256": "13e93b45d7944dde80478ade9bf4cd29110521d0eb8c40e323a5e5f3ec258f23"
+    },
+    "licenses/mupdf-third-party/zlib/LICENSE": {
+      "bytes": 1002,
+      "sha256": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2"
+    },
+    "licenses/mupdf-third-party/zlib/README": {
+      "bytes": 5291,
+      "sha256": "4026d921213bb2e311d8d42b44ef53361c102d5d45ae32f93f8e52eaee8d068f"
+    },
+    "licenses/mupdf-third-party/zxing-cpp/LICENSE": {
+      "bytes": 11358,
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
+    },
+    "licenses/mupdf-third-party/zxing-cpp/README.md": {
+      "bytes": 5663,
+      "sha256": "473ec1f4b3dd3ea1d06c136ec5d810a792438721c167824856b56f5dbf02d791"
+    },
+    "licenses/MuPDF-THIRD-PARTY.txt": {
+      "bytes": 697,
+      "sha256": "23a3fd0565378c982ee5b3b0b2e4086c102929ed54936473d66d99892f126176"
+    },
+    "licenses/Pillow-LICENSE.txt": {
+      "bytes": 76888,
+      "sha256": "6644596ba12c005c174b7a03d86c2ffe5f3fa7ecdf37d9aa8f71f3516e57c7a2"
+    },
+    "licenses/PyInstaller-COPYING.txt": {
+      "bytes": 32604,
+      "sha256": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64"
+    },
+    "licenses/PyMuPDF-COPYING.txt": {
+      "bytes": 64,
+      "sha256": "40e60697600535eabfb5ae05f72829d88cfe8d02dd4792f5a754f6f51dabe55b"
+    },
+    "licenses/Python-LICENSE.txt": {
+      "bytes": 24926,
+      "sha256": "160a384f3520ae891b3197f14ff8b1db1d6a1270873424383045dc025a083908"
+    },
+    "licenses/Qt-GPL-exception-1.0.txt": {
+      "bytes": 965,
+      "sha256": "40678d338ce53cd93f8b22b281a2ecbcaa3ee65ce60b25ffb0c462b0530846b2"
+    },
+    "licenses/qt-third-party/index.html": {
+      "bytes": 88318,
+      "sha256": "4a3901f264ad2dca648d451efb51e638dd7e8e70a31f9d7001019b04b59fe55c"
+    },
+    "licenses/qt-third-party/qtcore-attribution-blake2.html": {
+      "bytes": 36427,
+      "sha256": "e3092b0d857867fcc6e1ecf7382a0624f96afbf8558bdd44b3ba9872bd460378"
+    },
+    "licenses/qt-third-party/qtcore-attribution-doubleconversion.html": {
+      "bytes": 19795,
+      "sha256": "f7e844ecc5a777a788cf5a41c3248098960dea047dde341ada5e1709337c6b88"
+    },
+    "licenses/qt-third-party/qtcore-attribution-easing.html": {
+      "bytes": 19419,
+      "sha256": "2300b6737d4f2be0f3cbf9071d454b7364f3ba21e9eae48b03be7e10e04198c0"
+    },
+    "licenses/qt-third-party/qtcore-attribution-forkfd.html": {
+      "bytes": 18977,
+      "sha256": "fb2e577a3340a047eab8da43da557dd8efb795df49a2ba465a8fbabb0b345516"
+    },
+    "licenses/qt-third-party/qtcore-attribution-md4.html": {
+      "bytes": 24971,
+      "sha256": "68843e9e30cbf8e67d8cf137cc7f77d0236f35d573c136a590e01b6c6748814d"
+    },
+    "licenses/qt-third-party/qtcore-attribution-md5.html": {
+      "bytes": 24843,
+      "sha256": "74f01a980d3a5396941bd785af994f5988e4c16126b6f2635be25c56121b390a"
+    },
+    "licenses/qt-third-party/qtcore-attribution-pcre2-sljit.html": {
+      "bytes": 19690,
+      "sha256": "e1aab294a1b07aa43251caed51f4448a75637dfa8a75cfba2634dc65a0061631"
+    },
+    "licenses/qt-third-party/qtcore-attribution-pcre2.html": {
+      "bytes": 22260,
+      "sha256": "71666d2f36cf9ea24d5e16c8236729e4eb7fcaf498f6ddbad20f8985dc878997"
+    },
+    "licenses/qt-third-party/qtcore-attribution-qeventdispatcher-cf.html": {
+      "bytes": 19443,
+      "sha256": "3510c3e05d1f5c618cfdc1f84e91e9d75cf7fcc54af73dca604009d087e686db"
+    },
+    "licenses/qt-third-party/qtcore-attribution-rfc6234.html": {
+      "bytes": 19648,
+      "sha256": "6389b1b868bfb807530f7b329344560f54e407afd1c71c28018a865aa2a7997a"
+    },
+    "licenses/qt-third-party/qtcore-attribution-sha1.html": {
+      "bytes": 18062,
+      "sha256": "44c5eb3a79cf07d4d2d2e2dcba6f9df5f8e648735cdf8b52341aa0f500db5fbe"
+    },
+    "licenses/qt-third-party/qtcore-attribution-sha3-endian.html": {
+      "bytes": 18720,
+      "sha256": "fb64e26629a6ef0062bbfe17d665aa99b061c7477db2a41988430dadfdf58750"
+    },
+    "licenses/qt-third-party/qtcore-attribution-sha3-keccak.html": {
+      "bytes": 25700,
+      "sha256": "632754c5c76d78612874af4bbc926b2e7efb64ecc87c3b4bf264f29f7ecd86df"
+    },
+    "licenses/qt-third-party/qtcore-attribution-siphash.html": {
+      "bytes": 25067,
+      "sha256": "3c637f5319c33d43ece28b2c15e47046072a7d532a5cb7767dbe40e2a745b024"
+    },
+    "licenses/qt-third-party/qtcore-attribution-tika-mimetypes.html": {
+      "bytes": 28922,
+      "sha256": "b0d1e85ab6dcf608a5b57a8a308e8cb9997c9e9daa26f1be1415427fbd2dc164"
+    },
+    "licenses/qt-third-party/qtcore-attribution-tinycbor.html": {
+      "bytes": 19133,
+      "sha256": "e109ef0416901192817956f6a778f8e064fc193ee956447c176887a82fdfe31f"
+    },
+    "licenses/qt-third-party/qtcore-attribution-tlexpected.html": {
+      "bytes": 25438,
+      "sha256": "997caf280206e36ca156175f5e8bc599aa34aa362b01a253bdcd219776654708"
+    },
+    "licenses/qt-third-party/qtcore-attribution-unicode-character-database.html": {
+      "bytes": 20249,
+      "sha256": "aa1a8affa2ae1814efac4a022a4bebe5bb153c7389c404e9c0e974cc7958733d"
+    },
+    "licenses/qt-third-party/qtcore-attribution-unicode-cldr.html": {
+      "bytes": 20526,
+      "sha256": "2791e5673ac12672990bef5a4d8d1d383ad528dc827a53440b828cabdfc4c762"
+    },
+    "licenses/qt-third-party/qtcore-attribution-zlib.html": {
+      "bytes": 19514,
+      "sha256": "ddb1332d9baa9b5bf3dc5b8e3da7dcd96bc404cac46393e17e68938e64d1260f"
+    },
+    "licenses/qt-third-party/qtgui-attribution-aglfn.html": {
+      "bytes": 19515,
+      "sha256": "84b55313230d0a939e71b22a782d4ac7e1515157733a2d11401f7fe7465fe67b"
+    },
+    "licenses/qt-third-party/qtgui-attribution-android-native-style.html": {
+      "bytes": 18297,
+      "sha256": "aa2e458c7eb5e9d0e6213337c5c8d27df8271ac66f151929f2c35763ad1ddede"
+    },
+    "licenses/qt-third-party/qtgui-attribution-cocoa-platform-plugin.html": {
+      "bytes": 19891,
+      "sha256": "ec0c9f3f2898dd02bc43cc242ed01f478804a9e7c85c93f81e4ab14a599b2bf3"
+    },
+    "licenses/qt-third-party/qtgui-attribution-d3d12memoryallocator.html": {
+      "bytes": 19142,
+      "sha256": "e804441e4a06064396c64d59cced7365a7cf8a0e86c323db64e842e68ae67ff7"
+    },
+    "licenses/qt-third-party/qtgui-attribution-dejayvu.html": {
+      "bytes": 26858,
+      "sha256": "9517cde702cf92cf7bdebc4d2dc87386d31d60756f40a080d823a084f5ac14a8"
+    },
+    "licenses/qt-third-party/qtgui-attribution-emoji-segmenter.html": {
+      "bytes": 28490,
+      "sha256": "51cde7ae6bf492338dcdd22ae82f6205b10aae12ead9bcb78554da8ab7cb0b9f"
+    },
+    "licenses/qt-third-party/qtgui-attribution-freetype-bdf.html": {
+      "bytes": 20406,
+      "sha256": "c3b708445f7ecbe7270952b9fa42c0dd2feee188a0b90799f6a1ce7cc98df417"
+    },
+    "licenses/qt-third-party/qtgui-attribution-freetype-pcf.html": {
+      "bytes": 20366,
+      "sha256": "6a67abac65b319d5769e457676bea5d125dfda06b6a7ff326c0d7d237da48f36"
+    },
+    "licenses/qt-third-party/qtgui-attribution-freetype-zlib.html": {
+      "bytes": 18897,
+      "sha256": "f8a81be189d1a45c1a97fc782aed6787432ca89354ea265d9a06cb120c788b2c"
+    },
+    "licenses/qt-third-party/qtgui-attribution-freetype.html": {
+      "bytes": 46413,
+      "sha256": "a0ee18cd875b4a0188a9c343d3686fd3fc4baa369b60242c1dfadbb337894ea4"
+    },
+    "licenses/qt-third-party/qtgui-attribution-grayraster.html": {
+      "bytes": 44349,
+      "sha256": "ab886bdc562706610b4f6dd0981fed5f87bfa9c2504d0d7cbef92f0734df112b"
+    },
+    "licenses/qt-third-party/qtgui-attribution-harfbuzz-ng.html": {
+      "bytes": 20783,
+      "sha256": "67ed724619b820e6fcfb3a0f2cd7df3f84542e693239014081c843cd75e640e5"
+    },
+    "licenses/qt-third-party/qtgui-attribution-icc-srgb-color-profile.html": {
+      "bytes": 18497,
+      "sha256": "2ecb637312d9f522c3e3c207c96b39ac172411e3cb98f0a6835c6da84340c99c"
+    },
+    "licenses/qt-third-party/qtgui-attribution-libjpeg.html": {
+      "bytes": 26669,
+      "sha256": "35c72526d9e937758576a5f16fedfee306d2f6f274088561b340ed04a18c0e56"
+    },
+    "licenses/qt-third-party/qtgui-attribution-libpng.html": {
+      "bytes": 24198,
+      "sha256": "9ec6d5f9b33c0bcd6c4b81122a533b88cbee49c983981527a082d5589e00d780"
+    },
+    "licenses/qt-third-party/qtgui-attribution-md4c.html": {
+      "bytes": 19063,
+      "sha256": "95501a73a53ffff1fd22d420abd466a0ba83d021764d855c14914801b78b7519"
+    },
+    "licenses/qt-third-party/qtgui-attribution-opengl-es2-headers.html": {
+      "bytes": 19113,
+      "sha256": "ef33b009645d7f87c52a0b51def5731147b0b4c59c03f5b351f88a0ab6974d3a"
+    },
+    "licenses/qt-third-party/qtgui-attribution-opengl-headers.html": {
+      "bytes": 19078,
+      "sha256": "e23fcff62c6fc0e16c03e042ee2e47bdde486522ae1703f0210f2e3918650e4c"
+    },
+    "licenses/qt-third-party/qtgui-attribution-pixman.html": {
+      "bytes": 18999,
+      "sha256": "5b3b6a2dd7db6c2ec69ec5e995a79835691673d27ec554486f8986b2f4310a32"
+    },
+    "licenses/qt-third-party/qtgui-attribution-rhi-miniengine-d3d12-mipmap.html": {
+      "bytes": 19247,
+      "sha256": "2b77989967398ee245dff53ca4272f9ad79039ac787417e97d2831b04d777b5d"
+    },
+    "licenses/qt-third-party/qtgui-attribution-smooth-scaling-algorithm.html": {
+      "bytes": 21028,
+      "sha256": "946c6f288f46ff28e9b43930b813384efd00251390ab6f16d09070d976d549be"
+    },
+    "licenses/qt-third-party/qtgui-attribution-vulkan-xml-spec.html": {
+      "bytes": 29409,
+      "sha256": "f3f042a81db977e89351d2409348727580667a60eae9249ef7b1ebd17c0be3ee"
+    },
+    "licenses/qt-third-party/qtgui-attribution-vulkanmemoryallocator.html": {
+      "bytes": 19148,
+      "sha256": "ca54f612fa8b97abd338308e67940ca44d7b3b9bc55868438c99c05e89ee988c"
+    },
+    "licenses/qt-third-party/qtgui-attribution-webgradients.html": {
+      "bytes": 18930,
+      "sha256": "915f55ec16ebff896a74692c5eef5ca45f6af8c7dc2f4dc2ac2a92a1fe5f9df2"
+    },
+    "licenses/qt-third-party/qtgui-attribution-wintab.html": {
+      "bytes": 17946,
+      "sha256": "2df10517aaaba05291eb05cf361ec00690e14244f2fff241a120654c78671b97"
+    },
+    "licenses/qt-third-party/qtgui-attribution-xcb-xinput.html": {
+      "bytes": 19327,
+      "sha256": "4f9082895e6afc8b56f0a2c25b411180887e58b27db9ee807c79770c584edf61"
+    },
+    "licenses/qt-third-party/qtgui-attribution-xserverhelper.html": {
+      "bytes": 20275,
+      "sha256": "fd6f484c84be899d82d003475a900cdd7ed4ca6c648a1f0d070e35c7eb759aab"
+    },
+    "licenses/qt-third-party/qtimageformats-attribution-libtiff.html": {
+      "bytes": 19228,
+      "sha256": "7242ce571e4b177c4eb899f46eedf4d7c3d82d26ac03992774022eae61d7009c"
+    },
+    "licenses/qt-third-party/qtimageformats-attribution-libwebp.html": {
+      "bytes": 19686,
+      "sha256": "80c7635aa866cc820023fd0e777d3f003b11440980a785f01f8e2d1f7147dbff"
+    },
+    "licenses/qt-third-party/qtnetwork-attribution-libpsl.html": {
+      "bytes": 20040,
+      "sha256": "0475f8d9a509ab3988806877ef3cef35f249a9294f247af78fa86bdda1f83f16"
+    },
+    "licenses/qt-third-party/qtnetwork-attribution-psl-data.html": {
+      "bytes": 35482,
+      "sha256": "beff6a136244f6c849b681704036956894ef7c76159924cd3b9d573d26f3cbf3"
+    },
+    "licenses/Qt-THIRD-PARTY-NOTICE.md": {
+      "bytes": 3338,
+      "sha256": "56f1711170ca9a840566e74e8643755bd65de71d5a12e6ec1c44712207f2be79"
+    },
+    "licenses/tessdata-LICENSE.txt": {
+      "bytes": 10173,
+      "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9"
+    },
+    "openspec/config.yaml": {
+      "bytes": 771,
+      "sha256": "ed9ab8fa65deaef973c0f4bdac0b798d9f4448a8c7efda6ab68432a592969723"
+    },
+    "openspec/specs/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "openspec/specs/advanced-pdf-tools/spec.md": {
+      "bytes": 7709,
+      "sha256": "9f0f02496b8814569d94f7890dae07152a2163117203b33e51bd8da2dfdd880f"
+    },
+    "openspec/specs/desktop-navigation/spec.md": {
+      "bytes": 3517,
+      "sha256": "b974e968cadf8ba5f4708f5180aa7bac50e4a131b75ad88a4fb3006024adcd06"
+    },
+    "openspec/specs/ocr-and-stamps/spec.md": {
+      "bytes": 1998,
+      "sha256": "8dfd7f1a6e4f520f7270c3e659f96c03e5b036a508260e295a07e440804e38ab"
+    },
+    "openspec/specs/pdf-workspace/spec.md": {
+      "bytes": 2468,
+      "sha256": "d3e737f79ac6e8399c020d61c56c1a2df68ea5e1b1fbd843b62958262d0f592d"
+    },
+    "openspec/specs/windows-distribution/spec.md": {
+      "bytes": 1813,
+      "sha256": "a63a3aa875fd63be8529c4e15291acd3854fd073aa679d67c1c67704f5620986"
+    },
+    "pdf_tools.py": {
+      "bytes": 10894,
+      "sha256": "53e2ad766fc0eb86033f680908f62885f913060f7b5b9b256d36d9b83d374cc9"
+    },
+    "PDFMaster.spec": {
+      "bytes": 1888,
+      "sha256": "8ebfa58f2dc5506ae6278c192c8a335cebd2c0f4be051f57ebaeea39cbbf9b85"
+    },
+    "PRIVACY.md": {
+      "bytes": 4693,
+      "sha256": "dd86270ee77a92a64a7851c53a3bfc43528f835f0b870794c6d353e10b4ca984"
+    },
+    "README.md": {
+      "bytes": 14461,
+      "sha256": "15341ba740383a1ae0bde4d9999ca4e95d517533097b12b2152bf3a2962097f9"
+    },
+    "requirements-dev.txt": {
+      "bytes": 48,
+      "sha256": "23dbf96c67bab357fef068b0cfb515918ee357b82e21d098fac43cb4245533a5"
+    },
+    "requirements.txt": {
+      "bytes": 252,
+      "sha256": "4e212b27211f8ee3ee113da47922d11dd01c1797f6b6fbfbb3d8223c44dfbbbc"
+    },
+    "resources/fonts/DejaVuSans.ttf": {
+      "bytes": 756072,
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+    },
+    "resources/fonts/README.md": {
+      "bytes": 300,
+      "sha256": "4fd5b6427d7bb501567a3ed6d7f1278e9684a4b560b363e242d6cdd2cd31bddb"
+    },
+    "resources/icon.ico": {
+      "bytes": 10790,
+      "sha256": "ba13bb14dc9ff8ef4baa4abd120c9464e815d2f1496d062b76942692b9fcd6bc"
+    },
+    "resources/tessdata/eng.traineddata": {
+      "bytes": 15400601,
+      "sha256": "8280aed0782fe27257a68ea10fe7ef324ca0f8d85bd2fd145d1c2b560bcb66ba"
+    },
+    "resources/tessdata/README.md": {
+      "bytes": 601,
+      "sha256": "a98d33cb3a543e5103ce76b4081aef92143ec365743811061c9d347cb311186d"
+    },
+    "resources/tessdata/rus.traineddata": {
+      "bytes": 15301764,
+      "sha256": "b617eb6830ffabaaa795dd87ea7fd251adfe9cf0efe05eb9a2e8128b7728d6b6"
+    },
+    "scan_preprocess.py": {
+      "bytes": 2339,
+      "sha256": "c96501f9e2f7ed8c9f7bac7b0dbfe2258fb2e7fbc522c9385f2baa764a5c68cd"
+    },
+    "scripts/build_collect_extra_licenses.py": {
+      "bytes": 1995,
+      "sha256": "7468f2cb24ec4f976e7b935856de489cd3d3c606913e482ee6078df88d9b0c54"
+    },
+    "scripts/build_collect_licenses.py": {
+      "bytes": 3008,
+      "sha256": "9b121523afa5a14d2604953634107887b6383e3d0ef6a48e8380a638e900099a"
+    },
+    "scripts/build_collect_mupdf_licenses.py": {
+      "bytes": 1789,
+      "sha256": "ab7432c99d0b575c675848bbf7fcbe5d1cfe9b665a75aa47d390950eb3c84255"
+    },
+    "scripts/build_manifest.py": {
+      "bytes": 2869,
+      "sha256": "0d00bfc2e5e86d3dcc5ed73cf17d681397a779eeb9f85b63eb1df110d5da0364"
+    },
+    "scripts/capture_navigation.py": {
+      "bytes": 6009,
+      "sha256": "b29857eddbb95247f49500f4897d7e2067523d1c5f9c738e0acb24e0164ec480"
+    },
+    "scripts/ci_build.ps1": {
+      "bytes": 6885,
+      "sha256": "b04bae43b5e8192e7f10b8bdd7388dc502e3a4124cea7fcad024af8191037637"
+    },
+    "scripts/prepare_ci_tools.ps1": {
+      "bytes": 5713,
+      "sha256": "94333a543c6bfd7434ed8b233bfcf2af7526cf6d7625b7ca6dbcb6288c9bd317"
+    },
+    "scripts/prepare_repository.py": {
+      "bytes": 7978,
+      "sha256": "767c737fc14c131c01ae2d590675e49f3ab7a272e3cf6e0f8b371b9a52a5b455"
+    },
+    "scripts/qa_fixtures.py": {
+      "bytes": 2974,
+      "sha256": "56aa5fc80c06a04e30fb7c92ffe21f25407b83540c28684bf54c45857a64c579"
+    },
+    "scripts/release.py": {
+      "bytes": 2448,
+      "sha256": "a0a8b65264f0c9ab43d337fe302e7a19b2e15502ea53294d562053ade81b5769"
+    },
+    "scripts/verify_windows_install.ps1": {
+      "bytes": 8001,
+      "sha256": "e34100190428c0002b531199fb3b678418c1616858bab24552bfdb4c17a90706"
+    },
+    "SECURITY.md": {
+      "bytes": 3204,
+      "sha256": "3d0f964fe3c62dc847b9b108fe6175c52e835f504a2efe86c3ce62f7e56750fb"
+    },
+    "signing/artifact-configuration.xml": {
+      "bytes": 612,
+      "sha256": "428b51a54a844029991ab2de4fc9e385255c770ef2423b9f9956bfb990fd108e"
+    },
+    "signing/eligibility.md": {
+      "bytes": 5337,
+      "sha256": "53045486235a1313ed312896ec2ecf8a81e0eef34d5effd26f2805d743bdca0f"
+    },
+    "signing/installer-artifact-configuration.xml": {
+      "bytes": 615,
+      "sha256": "3eaf0c350884e9bb3e6dd0e91102b51929746df9b43ccfd718e891817fc985f6"
+    },
+    "SOURCES.md": {
+      "bytes": 9265,
+      "sha256": "47b465c971479fbbf7514d4e731f1712b4e68f90058a7085d66d9c9604fa7298"
+    },
+    "stamp_library.py": {
+      "bytes": 5758,
+      "sha256": "de2d74f858053e5c204d8f3d02ce19b6b5bfcca67cde9538d8d0674061bef1e7"
+    },
+    "tests/test_acceptance.py": {
+      "bytes": 2895,
+      "sha256": "d232f4d63d8e6dc8675ac36d0636f14ecf53f185944aec3815ccb9e57e1e51ff"
+    },
+    "tests/test_ci_preparation.py": {
+      "bytes": 10630,
+      "sha256": "a2ccc9fa3633228a05e7e4c0d646fda9bb54fc677e97d9ae25d5b4f65bb78a7b"
+    },
+    "tests/test_command_menu.py": {
+      "bytes": 5730,
+      "sha256": "666b263bcddf9fc120870e0f7537755bc82248e4763a9c1114ee95bf5ad4a98f"
+    },
+    "tests/test_engine.py": {
+      "bytes": 9430,
+      "sha256": "24820f3d383694a5b474b4747083a8ca08fc6dad0818b1f3848e5ac905b12cc1"
+    },
+    "tests/test_engine_advanced.py": {
+      "bytes": 15579,
+      "sha256": "795a9dd7c2b0791c45694b92f1419378f467bb6c193db9d1c26402d9ae64882f"
+    },
+    "tests/test_navigation.py": {
+      "bytes": 12450,
+      "sha256": "5db45aed1bf8adf9a361ec8d635e1d18dfb5cba515728bf484ccb0caad3b3079"
+    },
+    "tests/test_pdf_tools.py": {
+      "bytes": 12233,
+      "sha256": "6df0e8f257ab982068193f7f621199d0c070974d7df0ca6dfc4194d3d2a5be45"
+    },
+    "tests/test_repository_readiness.py": {
+      "bytes": 12438,
+      "sha256": "3074a2f62981ac6076fa10c2d689f9a298e4f640ebdaa357e253840af522d517"
+    },
+    "tests/test_scan_preprocess.py": {
+      "bytes": 1443,
+      "sha256": "9ada1394b13fe89e59f8550d625bbdad6816f6482556108aa0cf0fa7e15f460c"
+    },
+    "tests/test_stamp_library.py": {
+      "bytes": 1829,
+      "sha256": "11ccec48e74d06bfb737cfef4ecc9fc00ce0ad5969e050805a9622202b429a6a"
+    },
+    "tests/test_ui.py": {
+      "bytes": 8938,
+      "sha256": "6e6cec35b3289737b4d58c9b1a17a5414ca402a2acc8dfa3b7268a725668495c"
+    },
+    "tests/test_ui_advanced.py": {
+      "bytes": 14582,
+      "sha256": "2f42caab53931b40c56c11757eab35851114b3ef2efc2f1c6f8d103e5484731d"
+    },
+    "THIRD_PARTY.md": {
+      "bytes": 4820,
+      "sha256": "f128409e9489a9055a1a7210739fd29d40cbf24785aa633a5fd71f65327f6834"
+    },
+    "ui.py": {
+      "bytes": 98403,
+      "sha256": "a164c3d469be237f6c52748cd682b27e780ffe5d5e43f85af5eae1de8584ed54"
+    },
+    "ui_icons.py": {
+      "bytes": 5474,
+      "sha256": "9ecef2718ce33b5ade1d0e808ef3b779017fbcb25dcc88819d8bf9e8f92cb43e"
+    },
+    "ui_theme.py": {
+      "bytes": 6912,
+      "sha256": "ecfea1ec48df7c430470817897270b3ff5e168d1127343819b8ca8e40fbd4537"
+    }
+  }
+}

@@ -1,0 +1,150 @@
+[
+  {
+    "name": "brotli",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-brotli/tree/2523f3314501aa5c90e561922b2e668b3ccee26e",
+    "notices": [
+      "LICENSE",
+      "README",
+      "README.md"
+    ]
+  },
+  {
+    "name": "cmark-gfm",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-cmark-gfm/tree/74e0f5b6b62bbdd1e262c92f4bb2c6c871c6307e",
+    "notices": [
+      "COPYING",
+      "README.md"
+    ]
+  },
+  {
+    "name": "curl",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-curl/tree/f43c6fbb2dbdf68dfdd0f0c3399e3711a621614a",
+    "notices": [
+      "COPYING",
+      "README",
+      "README.md"
+    ]
+  },
+  {
+    "name": "extract",
+    "source": "https://github.com/ArtifexSoftware/extract/tree/8750ac39c30a0d65119b426b5a491c5b8e8bf674",
+    "notices": [
+      "COPYING",
+      "README"
+    ]
+  },
+  {
+    "name": "freeglut",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-freeglut/tree/d5e2256d571b3ef66fb60716c99e35e9d3e570a2",
+    "notices": [
+      "COPYING",
+      "README"
+    ]
+  },
+  {
+    "name": "freetype",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-freetype2/tree/0a0221a1347e2f1e07c395263540026e9a0aa7c7",
+    "notices": [
+      "LICENSE.TXT",
+      "README",
+      "docs/FTL.TXT",
+      "docs/GPLv2.TXT"
+    ]
+  },
+  {
+    "name": "gumbo-parser",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-gumbo-parser/tree/61bd4e736c3b342e592f65be0d65ec6a0acd8dcb",
+    "notices": [
+      "COPYING",
+      "README.md"
+    ]
+  },
+  {
+    "name": "harfbuzz",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-harfbuzz/tree/c28ba35a1e6dc4b6b32e2b1d11fd2a408f6c86bb",
+    "notices": [
+      "COPYING",
+      "README.md"
+    ]
+  },
+  {
+    "name": "jbig2dec",
+    "source": "https://github.com/ArtifexSoftware/jbig2dec/tree/dc15c39bbbddc90f79c14563d2eb5a794106be8f",
+    "notices": [
+      "COPYING",
+      "LICENSE",
+      "README"
+    ]
+  },
+  {
+    "name": "lcms2",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-lcms2/tree/d69c64417c4a33a4629957fc0e08f4f4c5abcc3d",
+    "notices": [
+      "LICENSE",
+      "README.md"
+    ]
+  },
+  {
+    "name": "leptonica",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-leptonica/tree/7fbe9ea76d1e0c48a02b2ed371d24f92c7bac40c",
+    "notices": [
+      "README.md",
+      "leptonica-license.txt"
+    ]
+  },
+  {
+    "name": "libjpeg",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-libjpeg/tree/627faae398468d5d11e3d694dc325432f734b5c4",
+    "notices": [
+      "README"
+    ]
+  },
+  {
+    "name": "mujs",
+    "source": "https://github.com/ArtifexSoftware/mujs/tree/e892c9fdbbddba94e52f656ccb378ed4885e30cc",
+    "notices": [
+      "COPYING",
+      "README"
+    ]
+  },
+  {
+    "name": "openjpeg",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-openjpeg/tree/957029eb875eee1118743f200cb86da9d8289de2",
+    "notices": [
+      "LICENSE",
+      "README.md"
+    ]
+  },
+  {
+    "name": "tesseract",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-tesseract/tree/ad0f76d971946512a62c933f490c8111877eddaa",
+    "notices": [
+      "LICENSE",
+      "README.md"
+    ]
+  },
+  {
+    "name": "zint",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-zint/tree/7a9fdd6cd00cd5bfd0082705d934c13ef84f25e1",
+    "notices": [
+      "LICENSE",
+      "README"
+    ]
+  },
+  {
+    "name": "zlib",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-zlib/tree/da607da739fa6047df13e66a2af6b8bec7c2a498",
+    "notices": [
+      "LICENSE",
+      "README"
+    ]
+  },
+  {
+    "name": "zxing-cpp",
+    "source": "https://github.com/ArtifexSoftware/thirdparty-zxing-cpp/tree/742aef959e12a41eda494df78fd567c2e715ff57",
+    "notices": [
+      "LICENSE",
+      "README.md"
+    ]
+  }
+]

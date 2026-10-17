@@ -1,0 +1,11 @@
+* text=auto eol=lf
+*.traineddata -text
+*.ttf -text
+*.ico -text
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.pdf -text
+*.zip -text
+*.exe -text
+*.dll -text

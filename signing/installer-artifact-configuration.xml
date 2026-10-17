@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <parameters>
+    <parameter name="version" required="true" />
+  </parameters>
+  <!-- Inno is signed as an outer PE, not an unsupported composite setup-exe.
+       The own application was signed before Inno compilation. The generated
+       Inno uninstaller and upstream DLLs are not signed with our certificate. -->
+  <zip-file>
+    <pe-file path="PDFMaster-Setup-${version}.exe" min-matches="1" max-matches="1">
+      <authenticode-sign />
+    </pe-file>
+  </zip-file>
+</artifact-configuration>
